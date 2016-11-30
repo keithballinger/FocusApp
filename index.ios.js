@@ -9,16 +9,28 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from 'react-native';
 
 export default class FocusApp extends Component {
+  constructor(props) {
+    super(props); 
+    this.state = {
+      todo: "",
+    };
+  }
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           What is your focus today?
         </Text>
+        <TextInput
+          style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+          onChangeText={(todo) => this.setState({todo})}
+          value={this.state.todo}
+        />
       </View>
     );
   }
